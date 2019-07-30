@@ -1,0 +1,17 @@
+<h1>얼굴 인식 사이트</h1>
+
+  <form action="{% url 'search' %}">
+      <input type="file" name="image" placeholder="이미지를 넣어주세요">
+      <input type="submit" value="검색">
+  </form>
+  <div>
+  {{test}}
+
+  {% for item in items %}
+      <ul>
+          <div>{{ forloop.counter }}
+            <img src="{{item.image}}" alt="" width="110" height="150"> : {{ item.title|safe }} ( {{item.pubDate}} ) : {{ item.director }} : {{ item.actor }} 평점 : {{ item.userRating }}
+          &llt;/div>
+      </ul>
+  {% endfor %}
+  </div>
